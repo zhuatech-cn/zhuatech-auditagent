@@ -22,6 +22,8 @@
 
 核心设计包括证据哈希与来源、只读取证、样本抽取、控制测试、结论草稿、分级复核以及完整审计轨迹。`AgentRuntime` 默认使用本地演示执行器，不访问被审计系统或外部模型。
 
+风险导向抽样功能按总体规模、异常率、重要性、历史发现和控制缺陷计算建议样本量，并给出高金额、异常评分、随机基准和控制例外等抽样分层。建议值用于辅助审计计划，审计人员仍需结合职业判断确认最终范围。
+
 ## 工程信息
 
 Java 包名为 `cn.zhuatech.auditagent`。后端基于 Java 21、Spring Boot、Spring Security、JWT、JPA 与 Flyway；前端基于 Vue 3、Pinia、Vue Router、Axios 与 Vite，兼容桌面和 H5；MySQL 8 用于生产数据，H2 用于测试。

@@ -10,3 +10,4 @@
 | GET | `/api/shopfloor/dashboard` | 审计人员工作台 |
 | POST | `/api/shopfloor/work-orders/{id}/reports` | 提交底稿结论 |
 | POST | `/api/shopfloor/agent-preview` | 运行本地审计演示智能体 |
+| POST | `/api/shopfloor/audit-sampling` | 按异常率、重要性与控制缺陷生成风险导向抽样建议 |
