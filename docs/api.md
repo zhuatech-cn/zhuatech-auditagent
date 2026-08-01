@@ -11,3 +11,4 @@
 | POST | `/api/shopfloor/work-orders/{id}/reports` | 提交底稿结论 |
 | POST | `/api/shopfloor/agent-preview` | 运行本地审计演示智能体 |
 | POST | `/api/shopfloor/audit-sampling` | 按异常率、重要性与控制缺陷生成风险导向抽样建议 |
+| POST | `/api/shopfloor/evidence-readiness` | 检查底稿必需证据、来源追溯与复核人配置 |
