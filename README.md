@@ -49,3 +49,7 @@ npm run dev:demo
 | ![知华科技微信咨询二维码一](docs/images/zhuatech-wechat-consulting.png) | ![知华科技微信咨询二维码二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 搜索关键词：审计智能体、Audit Agent、内部审计系统源码、合规智能体、审计底稿、控制测试、Java Vue 审计系统、知华科技。
+
+## 控制测试覆盖度
+
+新增 `POST /api/auditagent/insights/control-coverage`，结合总体、样本、高风险项目、异常、证据和独立复核评估覆盖度，输出 `ADEQUATE`、`REVIEW` 或 `INCREASE_SAMPLE`。
