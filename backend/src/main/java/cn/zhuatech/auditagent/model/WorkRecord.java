@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.auditagent.model;
 import jakarta.persistence.*; import java.time.LocalDate;
 @Entity @Table(name="auditagent_work_record") public class WorkRecord extends BaseEntity {

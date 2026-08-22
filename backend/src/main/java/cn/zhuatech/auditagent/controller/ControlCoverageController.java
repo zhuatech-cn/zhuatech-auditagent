@@ -1,3 +1,3 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.auditagent.controller;import cn.zhuatech.auditagent.common.ApiResponse;import cn.zhuatech.auditagent.service.ControlCoverageService;import jakarta.validation.Valid;import org.springframework.web.bind.annotation.*;
 @RestController @RequestMapping("/api/auditagent/insights/control-coverage") public class ControlCoverageController{private final ControlCoverageService service;public ControlCoverageController(ControlCoverageService service){this.service=service;}@PostMapping ApiResponse<ControlCoverageService.Result> evaluate(@Valid @RequestBody ControlCoverageService.Request r){return ApiResponse.ok(service.evaluate(r));}}
