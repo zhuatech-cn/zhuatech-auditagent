@@ -10,9 +10,16 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/** 在审计底稿提交复核前检查必需证据、来源追溯和复核人分配情况。 */
+/**
+ * 在审计底稿提交复核前检查必需证据、来源追溯和复核人分配情况。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class EvidenceReadinessService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ReadinessResult check(ReadinessRequest request) {
         Map<String, String> attached = new LinkedHashMap<>();
         request.attachedEvidence().stream().map(String::trim).filter(item -> !item.isEmpty())
@@ -34,6 +41,9 @@ public class EvidenceReadinessService {
             "READY".equals(state) ? "证据包可提交复核" : "完成整改动作后重新检查");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ReadinessRequest(
         @NotBlank(message = "请输入底稿编号") String workpaperCode,
         @NotEmpty(message = "请配置必需证据") List<String> requiredEvidence,
@@ -41,10 +51,16 @@ public class EvidenceReadinessService {
         boolean sourceTraceable,
         boolean reviewerAssigned
     ) {
+        /**
+         * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+         */
         public ReadinessRequest {
             attachedEvidence = attachedEvidence == null ? List.of() : List.copyOf(attachedEvidence);
         }
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ReadinessResult(String state, int completenessPercent, List<String> missingEvidence, List<String> remediationActions, String guidance) {}
 }

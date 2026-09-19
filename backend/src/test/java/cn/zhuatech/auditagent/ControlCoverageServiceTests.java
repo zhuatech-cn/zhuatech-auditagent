@@ -1,3 +1,12 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.auditagent;import cn.zhuatech.auditagent.service.ControlCoverageService;import org.junit.jupiter.api.Test;import static org.junit.jupiter.api.Assertions.*;
-class ControlCoverageServiceTests{private final ControlCoverageService s=new ControlCoverageService();@Test void increasesWeakSample(){var r=s.evaluate(new ControlCoverageService.Request(1000,10,0,5,false,false));assertEquals("INCREASE_SAMPLE",r.status());}@Test void acceptsStrongReviewedSample(){var r=s.evaluate(new ControlCoverageService.Request(100,30,10,0,true,true));assertEquals("ADEQUATE",r.status());}}
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
+class ControlCoverageServiceTests{private final ControlCoverageService s=new ControlCoverageService();/**
+                                                                                                       * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                       */
+@Test void increasesWeakSample(){var r=s.evaluate(new ControlCoverageService.Request(1000,10,0,5,false,false));assertEquals("INCREASE_SAMPLE",r.status());}/**
+                                                                                                                                                                                                                                                                  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                                                                                                                                                                                                                                  */
+@Test void acceptsStrongReviewedSample(){var r=s.evaluate(new ControlCoverageService.Request(100,30,10,0,true,true));assertEquals("ADEQUATE",r.status());}}

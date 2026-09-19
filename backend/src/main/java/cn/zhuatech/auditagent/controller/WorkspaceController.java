@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/shopfloor")
 @PreAuthorize("hasAnyRole('DOMAIN_USER','ADMIN')")
@@ -22,6 +25,9 @@ public class WorkspaceController {
     private final AuditSamplingService sampling;
     private final EvidenceReadinessService evidenceReadiness;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public WorkspaceController(AuditAgentService service, AgentRuntime runtime, AuditSamplingService sampling, EvidenceReadinessService evidenceReadiness) {
         this.service = service;
         this.runtime = runtime;
@@ -29,24 +35,39 @@ public class WorkspaceController {
         this.evidenceReadiness = evidenceReadiness;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @GetMapping("/dashboard")
     public ApiResponse<Dashboard> dashboard() { return ApiResponse.ok(service.shopfloorDashboard()); }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/work-orders/{id}/reports")
     public ApiResponse<ReportResult> report(@PathVariable Long id, @Valid @RequestBody ReportRequest request) {
         return ApiResponse.ok("反馈提交成功", service.report(id, request));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/agent-preview")
     public ApiResponse<AgentRuntime.AgentResult> preview(@RequestBody Map<String, String> body) {
         return ApiResponse.ok(runtime.run(new AgentRuntime.AgentRequest(body.getOrDefault("objective", "执行采购审计"), Map.of("mode", "demo"))));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/audit-sampling")
     public ApiResponse<AuditSamplingService.SamplingResult> recommend(@Valid @RequestBody AuditSamplingService.SamplingRequest request) {
         return ApiResponse.ok("审计抽样建议生成完成", sampling.recommend(request));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/evidence-readiness")
     public ApiResponse<EvidenceReadinessService.ReadinessResult> checkEvidence(@Valid @RequestBody EvidenceReadinessService.ReadinessRequest request) {
         return ApiResponse.ok("审计证据完整度检查完成", evidenceReadiness.check(request));

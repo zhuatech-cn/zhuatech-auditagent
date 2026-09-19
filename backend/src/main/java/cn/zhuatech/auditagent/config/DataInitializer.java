@@ -1,7 +1,13 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.auditagent.config;
 import cn.zhuatech.auditagent.model.*; import cn.zhuatech.auditagent.repository.*; import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import java.time.LocalDate; import java.util.List;
-@Configuration public class DataInitializer {@Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
+@Configuration public class DataInitializer {/**
+                                              * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                              */
+@Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
  OperatingUnit procure=units.save(new OperatingUnit("AUD-PROCURE","采购与供应商审计组","内审中心",1600)),finance=units.save(new OperatingUnit("AUD-FINANCE","财务与资金审计组","内审中心",1400)),it=units.save(new OperatingUnit("AUD-IT","信息系统审计组","风险管理中心",1200));
  WorkRecord a=records.save(new WorkRecord("AUD-2608-018","CTRL-P2P-07","采购付款三单匹配控制测试",procure,80,56,4,LocalDate.now().plusDays(2),WorkRecord.Status.RUNNING,"PROGRAM-P2P-V6")); WorkRecord b=records.save(new WorkRecord("AUD-2608-012","CTRL-CASH-03","银行账户权限季度复核",finance,64,64,1,LocalDate.now(),WorkRecord.Status.COMPLETED,"PROGRAM-CASH-V4")); WorkRecord c=records.save(new WorkRecord("AUD-2608-024","CTRL-IAM-09","离职账号及时停用抽样测试",it,72,39,6,LocalDate.now().plusDays(3),WorkRecord.Status.RELEASED,"PROGRAM-ITGC-V5"));
  resources.saveAll(List.of(new ResourceRegister("EVID-P2P-01","采购付款证据集",procure,ResourceRegister.Status.RUNNING,96),new ResourceRegister("EVID-BANK-02","银行权限证据集",finance,ResourceRegister.Status.RUNNING,94),new ResourceRegister("EVID-IAM-03","身份权限日志",it,ResourceRegister.Status.ALARM,77)));

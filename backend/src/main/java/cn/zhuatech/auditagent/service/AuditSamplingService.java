@@ -11,9 +11,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 根据异常率、重要性和控制缺陷生成风险导向审计样本。 */
+/**
+ * 根据异常率、重要性和控制缺陷生成风险导向审计样本。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class AuditSamplingService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public SamplingResult recommend(SamplingRequest request) {
         int riskScore = Math.min(100,
             (int) Math.round(request.anomalyRate() * 100 * 0.45)
@@ -28,6 +35,9 @@ public class AuditSamplingService {
         return new SamplingResult(riskScore, sampleSize, assurance, List.copyOf(strata), request.controlWeakness() ? "优先执行控制测试并扩大实质性程序" : "按风险分层抽样并保留选择依据");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record SamplingRequest(
         @NotBlank(message = "请输入审计总体名称") String populationName,
         @Positive int populationSize,
@@ -37,5 +47,8 @@ public class AuditSamplingService {
         @PositiveOrZero int previousFindings
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record SamplingResult(int riskScore, int recommendedSampleSize, String assuranceLevel, List<String> strata, String nextAction) {}
 }
